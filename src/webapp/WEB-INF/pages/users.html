@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<table class="table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.getId()}">VALUE</td>
+        <td th:text="${user.getName()}">VALUE</td>
+        <td th:text="${user.getPassword()}">VALUE</td>
+        <td>
+            <a th:href="@{user/edit(id=${user.getId()})}">Edit</a>
+            <a th:href="@{user/delete(id=${user.getId()})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a href="users/add/">AddUser</a>
+</html>
